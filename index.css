@@ -1,0 +1,27 @@
+/** {
+
+  border: 2px solid black;
+}*/
+
+#container {
+height: 700px;
+width: 700px;
+border: 1px solid black;
+}
+
+#centreImage {
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+  background: url("images/giphy.gif") no-repeat scroll 0% 0% transparent;
+}
+
+.testbox {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  border:2px solid black;
+  background-color:red;
+  
+
+}
