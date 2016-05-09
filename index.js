@@ -1,107 +1,98 @@
-$(function(){
+$(function() {
 
-var allNumbers = [21, 17, 32, 56];
-allNumbersSorted = allNumbers.sort();
-//var $box1 = $("#box1");
-var counter = 0;
-var $box = $('.testbox');
+  var $box = $('.testbox');
+  $.each($box, function(index, element) {
+        $(element).hide();
+      });
 
-console.log(allNumbersSorted);
-
-var counter1 = 0;
+  $('#start-game').click(startGame);
 
 
-console.log($box.data("number"));
+  function startTimer() {
+    var count = 1000;
+    var counter = setInterval(timer, 10); //10 will  run it every 100th of a second
+    $('.testbox').show();
+    function timer(){ 
+      if (count <= 0) { 
+        clearInterval(counter); 
+        gameOver();
+        return; 
+      }
+      count--;
+      document.getElementById("timer").innerHTML="<h1>Time: </h1>" + count /100; 
+    }
+  }
 
-// $($box).on("click", function() {
+  function currentLevel() {
+    var allNumbers = [21, 17, 32, 56, 8, 11, 2, 99];
+    allNumbersSorted = allNumbers.sort(function (a, b) { 
+      return a - b; 
+    });
 
-//         counter1++;
+    var $box = $('.testbox');
+    var counter2 = 0;
 
-//          $.each($box, function(index, element){
+    $.each($box, function(index, element) {
+      $(this).on("click", function() {
+        var counter = allNumbersSorted.length;
+        number = $(this).data("number");
 
-//              if (element.innerHTML == counter1) {
-//              $(element).hide();
-//              console.log(counter1);
-//          } 
-// });
-// });
+        if (number == allNumbersSorted[0]) {
+          $(element).hide();
+          allNumbers.shift();
+          counter2 ++;
+          $('#tally').html("<h1>Tally: " + counter2 +"</h1>");
+          if (counter == 1){
+            $('#trophy').css('background-image','url(http://i.imgur.com/d0E2Dgt.gif)','no-repeat', 'scroll', '0% 0%', 'transparent');
+          }
+        };
+      })
+    });
+  }
 
 
-$.each($box, function(index, element) {
 
-  $(this).on("click", function() {
+  //Box animation functions ----------------------------------
 
-    number = $(this).data("number");
-      
-    console.log(number);
+  function animateDiv(index , element){
+    var newq = makeNewPosition();
+    var oldq = $(element).offset();
+    var speed = calcSpeed([oldq.top, oldq.right], newq);    
+    $(element).animate({ top: newq[0], left: newq[1] }, speed, function(){
+      animateDiv(index, element);        
+    });   
+  };
 
-    if (number == allNumbersSorted[0]) {
-    
-    $(element).hide();
+  function makeNewPosition(){   
+    var container = $(".columnContainer")
+    var h = $(container).height() - 350;
+    var w = $(container).width() - 50;    
+    var nh = Math.floor(Math.random() * h);
+    var nw = Math.floor(Math.random() * w);   
+    return [nh,nw];    
+  };
 
-    allNumbers.shift();
+  function calcSpeed(prev, next) {  
+    var x = Math.abs(prev[1] - next[1]);
+    var y = Math.abs(prev[0] - next[0]);  
+    var greatest = x > y ? x : y;   
+    var speedModifier = 0.15;
+    var speed = Math.ceil(greatest/speedModifier);
+    return speed;
+  };
 
-} 
+  //----------------------------------------------------------
 
-})
+
+
+  function startGame() {
+    startTimer();
+    currentLevel();
+    $(".a").each(animateDiv)
+  }
+
+  function gameOver() {
+    // assign scores to player
+  }
 
 });
-
-
-
-
-
-
-
-
-
-
-
-// function dissappear() {
-
-//   number = $(this).data("number");
-
-
-//innerHTML of each box can be a random number, however each box can have a fixed ID with a number (e.g ID= "1")
-
-//the click count ('clicknumber') goes up with each click. On click, if the 'clicknumber' is equal to the (id?) of the next box you are supposed to click, it dissappears
-
-
-
-});
-
-
-//if box clicked 
-
-
-
-
-
-///pseudo code
-
-
-
-// outer container
-
-//To start;
-// array of random numbers (1-99) (firstly, with 4)
-// 4 boxes with 4 of those number in.
-// user clicks box - if the first number in the array is clicked, box dissapears, counter goes up.
-
-
-
-
-
-
-
-
-
-
-
-// write out user stories - e.g player 'must' be able to do something (click something, view leaderboard/correct row counter, ...bacuase...e.g press a number...because.... x(as many as possible)
-
-//hear a sound when number is clicked (not important) - box dissapears too (more important)
-
-//write out how complex this is - fibonacci scale - 1, 2, 3, 5, 8 or 13 - then put things in priority (not complexity) order
-
-//needs to be two player
