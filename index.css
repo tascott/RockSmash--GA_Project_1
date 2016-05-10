@@ -20,12 +20,30 @@ body {
     height: 100%;
 }
 
-#fancybox {
+.fancybox {
   text-align: center;
-  background-color: blue;
-  display: hidden;
+  display: none;
+  font-family: 'Poiret One', cursive;
+  padding: none;
+  margin: none;
 }
 
+.fancyboxstyle {
+    text-align: center;
+    display: none;
+    font-family: 'Poiret One', cursive;
+    padding: none;
+    margin: none;
+
+}
+
+
+/*.fancybox2 {
+  text-align: center;
+  display: none;
+  font-family: 'Poiret One', cursive;
+}
+*/
 .backgroundRed{ 
  background: #F00;
 }
@@ -44,7 +62,6 @@ body {
 height: 750px;
 width: 1300px;
 margin: 0 auto
-
 }
 
 #topColumn {
@@ -91,6 +108,14 @@ margin: 0 auto
   border: 2px solid white;
   float: right;
 }
+
+#popupimage {
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
 
 #timer {
   float: left;

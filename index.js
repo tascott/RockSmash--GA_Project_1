@@ -1,11 +1,10 @@
 $(function() {
 
-  $.fancybox.open();
-
-
-  // $(".fancybox").fancybox();
+  $('.fancybox').fancybox().click();
+  
   audio3.src = "sounds/song.mp3";
   audio3.play();
+
   var gameCounter = 1;
   var isPlayer1Turn = true;
   var P1result = 0;
@@ -43,7 +42,9 @@ $(function() {
         roundLose();
         audio2.src = "sounds/error.mp3";
         audio2.play();
+        $('.testbox').remove();
         return;
+
       }
       count--;
       document.getElementById("timer").innerHTML="<h1>Time: </h1>" + count /100; 
@@ -80,7 +81,6 @@ $(function() {
   function setupLevel() {
     
     allNumbersSorted = makenewarray();
-    console.log(allNumbersSorted);
     
     $(allNumbersSorted).each(function(index, element){
         var newBox = $('<div></div>');
@@ -120,7 +120,7 @@ $(function() {
       isGameOver()
    
   }
-  //-------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 
   function roundWin() {
 
@@ -136,7 +136,6 @@ $(function() {
       P2result++;
       document.getElementById("player2score").innerHTML=P2result;
       speedincrementer = speedincrementer + 0.01
-      console.log(speedincrementer);
     }
 
     if (gameCounter % 2 === 0) {
@@ -148,21 +147,31 @@ $(function() {
     isGameOver()
   }
 
-  //-------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 
   function isGameOver() {
 
-    console.log("game counter = " +gameCounter)
-
-   if ((gameCounter == 7) && (P1result > P2result)) { 
-    console.log("p1 wins")
+   if ((gameCounter == 9) && (P1result > P2result)) { 
     $startGame.html("P1 Wins")
-    } else if ((gameCounter == 7) && (P1result < P2result)) {
-    console.log("p2 wins")
+    $('#fancybox3').fancybox().click();
+    $('.restart').click(function() {
+         location.reload();
+    });
+
+    } else if ((gameCounter == 9) && (P1result < P2result)) {
     $startGame.html("P2 Wins")
-     } else if ((gameCounter == 7) && (P1result == P2result)) { 
-      console.log("TIE")
+    $('#fancybox4').fancybox().click();
+    $('.restart').click(function() {
+         location.reload();
+    });
+
+     } else if ((gameCounter == 9) && (P1result == P2result)) { 
       $startGame.html("Tie!")
+      $('#fancybox2').fancybox().click();
+      $('.restart').click(function() {
+           location.reload();
+    });
+
     } else {
       console.log("nothing")
 
@@ -170,10 +179,8 @@ $(function() {
   
 }
 
-  console.log("game counter = " +gameCounter)
 
-
-  //-------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 
   function startGame(player) {
     if (isPlayer1Turn) {
@@ -183,7 +190,6 @@ $(function() {
     }
 
     gameCounter++;
-    console.log(gameCounter);
 
     $('#trophy').css('background-image','none');
     gameRunning = true;
@@ -194,7 +200,7 @@ $(function() {
 
 
 
-    //Box animation functions ------------------------------------------------
+//Box animation functions ------------------------------------------------
 
     
 
@@ -248,8 +254,10 @@ $(function() {
    });
    
    return allNumbersSorted;
+
+
   }
 
-
+//-----------------------------------------------------------
 
 });
