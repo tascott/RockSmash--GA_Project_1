@@ -2,7 +2,7 @@ array = [1, 6, 7, 8]
 
 var randomnumber=Math.ceil(Math.random()*100) 
 
-
+ 
 
 
 
@@ -34,28 +34,44 @@ $('#box1').on("click", function() {
 
 
 
+var allNumbers = [];
+
+///randomArrayGeneratorFunction -------------------------
+while(allNumbers.length < 8) {
+  var randomnumber=Math.ceil(Math.random()*99);
+  var found=false;
+  for(var i=0;i<allNumbers.length;i++){
+    if(allNumbers[i]==randomnumber) {found=true;break};
+  }
+  if(!found)allNumbers[allNumbers.length]=randomnumber; 
+  
+}
+  
+  
+  
+  allNumbers.sort();
+  console.log(allNumbers);
+
+
+
+
+
+
+if ((counter < 2) && (startTimer() > 0)){
+  $('#trophy').css('background-image','url(http://i.imgur.com/d0E2Dgt.gif)','no-repeat', 'scroll', '0% 0%', 'transparent');
+
+  
+
+
+
+
+
+
+
 
 
 
   
-
-var allNumbers = []
-
-///randomArrayGeneratorFunction -------------------------
-while(allNumbers.length < 15){
-  var randomnumber=Math.ceil(Math.random()*100)
-  var found=false;
-  for(var i=0;i<allNumbers.length;i++){
-    if(allNumbers[i]==randomnumber){found=true;break}
-  }
-  if(!found)allNumbers[allNumbers.length]=randomnumber; }
-// sort the array----------------------------------------
-allNumbersSorted = allNumbers.sort(function (a, b) { return a - b; });
-
-/// -----------------------------------------------------
-console.log(allNumbersSorted);
-/// -----------------------------------------------------
-
 
 var $box = $('.testbox');
 

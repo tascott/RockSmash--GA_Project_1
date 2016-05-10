@@ -1,8 +1,3 @@
-/* {
-
-  border: 1px solid white;
-}*/
-
 html { 
   background:  url(http://i.giphy.com/GC7C2Fi902BDG.gif) no-repeat center center fixed; 
   background-size: cover;
@@ -11,6 +6,10 @@ html {
   text-align: center;
 }
 
+/**{
+
+  border: 2px solid white;
+}*/
 p {
   margin: 0px 0px 0px 0px;
   padding: 20px 0px 0px 0px;
@@ -21,32 +20,49 @@ body {
     height: 100%;
 }
 
+.backgroundRed{ 
+ background: #F00;
+}
+
+.backgroundClear {
+  background: none;
+}
+
+#start{
+  -webkit-transition: background 1.0s ease-in-out;
+  -ms-transition:     background 1.0s ease-in-out;
+  transition:         background 1.0s ease-in-out;
+}
+
 #container {
 height: 750px;
-width: 1100px;
-margin: 0 auto;
+width: 1300px;
+margin: 0 auto
+
 }
 
-#centreColumn {
+#topColumn {
   float: left;
-  width: 160px;
-  height: 100%;
+  width: 1300px;
+  height: 150px;
+}
+
+#buttonholder {
+  width: 150px;
+  height: 150px;
+  float: left;
   margin: 0 auto;
 }
 
-#leftColumn {
-  float: left;
-  width: 465px;
-  height: 100%;
+
+#mainArea {
+  float: clear;
+  width: 1300px;
+  height: 600px;
   margin: 0 auto;
+  display: inline-block;
 }
 
-#rightColumn {
-  float: left;
-  width: 465px;
-  height: 100%;
-  margin: 0 auto;
-}
 
 #centreImage {
   height: 150px;
@@ -56,17 +72,37 @@ margin: 0 auto;
   background-size: cover;
   border-radius: 50%;
   border: 2px solid white;
+  float: left;
+}
+
+#centreImage2 {
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+  background: url("http://i.imgur.com/vJEU8KM.gif") no-repeat scroll 0% 0% transparent;
+  background-size: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+  float: right;
 }
 
 #timer {
+  float: left;
   width: 150px;
   height: 150px;
   margin: 0 auto;
   border: 1px solid white;
+  margin: 0 90px;
+  font-size: 1em;
 
 }
 
+/*#timer h1 {
+  font-size: 2.5em;
+}
+*/
 #trophy {
+  float: left;
   width: 150px;
   height: 150px;
   margin: 0 auto;
@@ -74,32 +110,79 @@ margin: 0 auto;
 }
 
 .columnContainer {
-  border:1px solid black;
   display:inline-block;
 }
 
 #playerScores {
+  float: left;
   width: 150px;
-  height: 300px;
+  height: 150px;
   margin: 0 auto;
   border: 1px solid white;
-
 }
 
+#scoreholder {
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border: 1px solid white;
+  margin: 0 90px;
+}
+
+.playerscoreholders {
+
+  height: 30px;
+  width: 150px;
+  color: white;
+}
+
+#player1score {
+
+  font-size: 2em;
+  color: white;
+}
+
+#player2score {
+
+  font-size: 2em;
+  color: white;
+}
+
+#player2scoretext {
+
+  padding-top: 10px;
+}
 
 #centreImage:hover {
 
   background: url("http://i.imgur.com/mERLnlJ.gif") no-repeat scroll 0% 0% transparent;
   background-size: cover;
-
 }
+
+/*#buttonholder {
+  width: 150px;
+  height: 85px;
+}*/
+
+#startGame {
+  height: 152px;
+  width: 152px;
+  font-family: 'Poiret One', cursive;
+  font-size: 3em;
+ 
+  color: white;
+  border: 1px solid white;
+  -webkit-transition: background 1.0s ease-in-out;
+  -ms-transition:     background 1.0s ease-in-out;
+  transition:         background 1.0s ease-in-out;
+}
+
+
 
 div.testbox {
   height: 100px;
   width: 100px;
- /* display: inline-block;*/
-  /*border:2px solid black;*/
-  /*background-color:red;*/
   background: url('images/rock.png') no-repeat scroll 0% 0% transparent;
   background-size: cover;
   color: white;
@@ -108,6 +191,7 @@ div.testbox {
   text-align: center;
   font-size: 3em;
   position: relative;
+  float: left;
  
 }
 
