@@ -10,7 +10,7 @@ $(function() {
   var P1result = 0;
   var P2result = 0;
   var level = 0;
-  var speedincrementer = 0;
+  var speedincrementer = 0.00;
   var audio = document.getElementById("audio");
   var gameRunning = false;
 
@@ -29,7 +29,7 @@ $(function() {
 
 
   $('#startGame').click(startGame);
- 
+
 //-------------------------------------------------------------------------
   function startTimer() {
     $startGame.toggleClass("backgroundClear");
@@ -76,6 +76,22 @@ $(function() {
   function stopTimer() {
     clearInterval(counter); 
   }
+
+// Speed up/slow Down------------------------------------------------------------------------
+  
+  var $speedUp = $('#centreImage');
+  var $speedDown = $('#centreImage2');
+
+  $speedUp.click(function() {
+           speedincrementer = speedincrementer + 0.01;
+           console.log(speedincrementer);
+    });
+  $speedDown.click(function() {
+           speedincrementer = speedincrementer - 0.01;
+           console.log(speedincrementer);
+    });
+  
+
 //-------------------------------------------------------------------------
 
   function setupLevel() {
