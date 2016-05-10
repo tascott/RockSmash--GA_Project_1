@@ -1,5 +1,9 @@
 $(function() {
 
+  $.fancybox.open();
+
+
+  // $(".fancybox").fancybox();
   audio3.src = "sounds/song.mp3";
   audio3.play();
   var gameCounter = 1;

@@ -20,6 +20,12 @@ body {
     height: 100%;
 }
 
+#fancybox {
+  text-align: center;
+  background-color: blue;
+  display: hidden;
+}
+
 .backgroundRed{ 
  background: #F00;
 }
