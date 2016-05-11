@@ -26,6 +26,7 @@ body {
   font-family: 'Poiret One', cursive;
   padding: none;
   margin: none;
+  width: 800px;
 }
 
 .fancyboxstyle {
@@ -127,12 +128,38 @@ margin: 0 auto
   float: right;
 }
 
-#popupimage {
+.popupimage {
   height: 150px;
   width: 150px;
   margin: 0 auto;
   border-radius: 50%;
+  border: 2px solid black;
 }
+
+#speedchanger {
+
+  font-weight: bold;
+  margin: 0 auto;
+
+  border-top: none;
+  width: 80px;
+  height: 20px;
+  padding-top: 5px;
+
+}
+
+#speed {
+
+  font-weight: bold;
+  margin: 0 auto;
+ 
+  border-top: none;
+  width: 80px;
+  height: 20px;
+  padding-top: 5px;
+
+}
+
 
 
 #timer {
@@ -141,7 +168,7 @@ margin: 0 auto
   height: 150px;
   margin: 0 auto;
   border: 1px solid white;
-  margin: 0 0 0 100px;
+  margin: 0 0 0 110px;
   font-size: 1em;
 
 }

@@ -2,9 +2,7 @@ $(function() {
 
   $('.fancybox').fancybox().click();
   
-  audio3.src = "sounds/song.mp3";
-  audio3.play();
-
+  var $speed = $('#speed');
   var gameCounter = 1;
   var isPlayer1Turn = true;
   var P1result = 0;
@@ -12,6 +10,11 @@ $(function() {
   var level = 0;
   var speedincrementer = 0.00;
   var audio = document.getElementById("audio");
+  var audio2 = document.getElementById("audio2");
+  var audio3 = document.getElementById("audio3");
+  audio3.src = "sounds/song.mp3";
+  audio3.play();
+  var audio4 = document.getElementById("audio4");
   var gameRunning = false;
 
   var $timer = $('#timer');
@@ -64,8 +67,8 @@ $(function() {
                 if (counter < 2){
                   roundWin();
                   stopTimer();
-                  audio.src = "sounds/cheer.mp3";
-                  audio.play();
+                  audio4.src = "sounds/cheer.mp3";
+                  audio4.play();
                 }
             }
       }
@@ -84,11 +87,11 @@ $(function() {
 
   $speedUp.click(function() {
            speedincrementer = speedincrementer + 0.01;
-           console.log(speedincrementer);
+           $speed.html(speedincrementer.toFixed(2));
     });
   $speedDown.click(function() {
            speedincrementer = speedincrementer - 0.01;
-           console.log(speedincrementer);
+           $speed.html(speedincrementer.toFixed(2));
     });
   
 
@@ -121,10 +124,12 @@ $(function() {
         P1result = P1result; 
         document.getElementById("player1score").innerHTML=P1result;
         speedincrementer = speedincrementer + 0.01
+        $speed.html(speedincrementer.toFixed(2));
       } else {
         P2result = P2result;
         document.getElementById("player2score").innerHTML=P2result; 
         speedincrementer = speedincrementer + 0.01
+        $speed.html(speedincrementer.toFixed(2));
       }
 
       if (gameCounter % 2 === 0) {
@@ -148,10 +153,12 @@ $(function() {
       P1result++;
       document.getElementById("player1score").innerHTML=P1result;
       speedincrementer = speedincrementer + 0.01
+     $speed.html(speedincrementer);
     } else {
       P2result++;
       document.getElementById("player2score").innerHTML=P2result;
       speedincrementer = speedincrementer + 0.01
+      $speed.html(speedincrementer);
     }
 
     if (gameCounter % 2 === 0) {
@@ -206,7 +213,7 @@ $(function() {
     }
 
     gameCounter++;
-
+    // $speed.hide();
     $('#trophy').css('background-image','none');
     gameRunning = true;
     startTimer();
@@ -275,5 +282,5 @@ $(function() {
   }
 
 //-----------------------------------------------------------
-//nandos
+
 });
